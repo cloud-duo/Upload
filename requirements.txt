@@ -1,0 +1,4 @@
+sqlalchemy
+PyMySQL==0.9.3
+google-cloud-storage==1.14.0
+Flask==1.0.2
