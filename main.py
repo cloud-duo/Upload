@@ -1,10 +1,11 @@
+import json
 import os
+import uuid
 
+import pymysql
 import sqlalchemy
 from flask import Flask, request
 from google.cloud import storage
-import uuid
-import pymysql
 
 pymysql.install_as_MySQLdb()
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
@@ -73,7 +74,7 @@ def upload():
                 "INSERT INTO videos (id, filename) VALUES ('{}', '{}')".format(id, name)
             )
 
-    return 'Bucket {}.'.format(bucket.name)
+        return json.dumps({'id': id})
 
 
 @app.route('/')
